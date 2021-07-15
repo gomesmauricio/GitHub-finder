@@ -6,17 +6,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-
       github: {
         url: "https://api.github.com.users",
-        client_id: "044ecbe0f9cd24459823",
-        client_secret: "440f7e976118b387fca6d14d9b742bf03d05",
+        client_id: "9766275",
+        client_secret: "MDQ6VXNlcjk3NjYyNzU=",
         count: 7,
         sort: "created: asc"
       },
       user: [],
       repos: []
-
     };
   }
   getUser = (e) => {
@@ -26,7 +24,7 @@ class App extends Component {
     .get(
       `${url}/${user}?cliente_id=${client_id}&cliente_secret=${client_secret}`
     )
-    .then(({ data }) => this.setState({user:data}));
+    .then(({ data }) => this.setState({user: data}));
   }
   render() {
     console.log(this.state.user);
@@ -37,8 +35,10 @@ class App extends Component {
         <div className="container">
           <div className="card card-body">
             <h1>Pesquisar Usuário do GitHub</h1>
-            <p className="lead">Digite um nome para encontrar usuários e repositórios</p>
-            <input onChange={this.getUser}  id="serach" type="text" class="form-control" required />
+            <p className="lead">Digite um nome para encontrar usuários e repositórios
+            </p>
+            <input onChange={this.getUser}  id="serach" type="text" class="form-control" 
+            required />
           </div>
         </div>
       </div>
